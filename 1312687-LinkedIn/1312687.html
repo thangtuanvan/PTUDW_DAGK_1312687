@@ -19,17 +19,18 @@
 	<body ng-controller="myLinkedInController">
 		
 	<div id="profile-page">
-        <img id="cover-image" ng-src="{{coverPicture}}" alt="cover-picture" />
+        <img id="cover-picture" ng-src="{{coverPicture}}" alt="cover-picture" />
         <div id="profile-content">
 		
-            <!--PROFILE TOP CARD-->
+            <!--Phân 1-->
             <div id="profile-topcard">
                 <div class="row profile-main">
-                    <img class="profile-image col" ng-src="{{profilePicture}}" alt="profile-picture" />
+					<!--Ảnh đại diện-->
+                    <img class="profile-picture col" ng-src="{{profilePicture}}" alt="profile-picture" />
                     <div class="profile-overview col">
-                        <!--OVERVIEW TOP SECTION-->
+                      
                         <div class="overview-info row">
-                            <!--OVERVIEW TOP SECTION > LEFT PART-->
+                            <!--Họ tên - Headline - Quốc gia-->
                             <div style="display: inline-block; float: left;">
                                 <h1 class="overview-name">{{name[0] + ' ' + name[1]}}</h1>
                                 <p class="overview-headline">{{headline}}</p>
@@ -37,57 +38,27 @@
                                     <a href="https://www.google.com/#q=hochiminh+city">{{nation.city}}</a> |
                                     <a href="https://www.google.com/#q=vietnam">{{nation.state}}</a>
                                 </p>
-                                <table class="overview-summary">
+							<!--Thông tin liên lạc-->
+							<table class="overview-summary">
                                     <tr>
-                                        <th scope="row"><a href="">Current</a></th>
+                                        <th scope="row"><a href="">Email</a></th>
                                         <td>
-                                            <a ng-repeat="exp in experience | filter: {endPeriod: 'Present'} | limitTo: 3">
-                                                {{exp.companyName}}<span ng-show="!$last">, </span>
-                                            </a>
+                                            {{contact.email}}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><a href="">Previous</a></th>
+                                    
+									<tr>
+                                        <th scope="row"><a href="">Phone</a></th>
                                         <td>
-                                            <a ng-repeat="exp in experience | filter: {endPeriod: '!Present'} | limitTo: 3">
-                                                {{exp.companyName}}<span ng-show="!$last">, </span>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="">Education</a></th>
-                                        <td>
-                                            <a ng-repeat="edu in education | limitTo: 1">{{edu.name}}</a>
+											{{contact.phone}}
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
-                            <!--OVERVIEW TOP SECTION > RIGHT PART-->
-                            <div style="display: inline-block; float: right;">
-                                <img src="./images/commons/influencer.png" ng-show="isInfluencer" />
-                            </div>
-                        </div>
-                        <!--OVERVIEW BOTTOM SECTION-->
-                        <div id="profile-action" class="row">
-                            <!--OVERVIEW BOTTOM SECTION > LEFT PART-->
-                            <div style="display: inline-block; float: left;">
-                                <div style="display: inline-block">
-                                    <a id="follow-btn" class="waves-effect waves-light btn">Follow</a>
-                                    <a id="arrow-btn" class="waves-effect waves-light btn"><i class="arrow-down"></i></a>
-                                </div>
-                                <div id="supplemental-action">
-                                    <p>Know <span>{{name[0]}}</span>?
-                                        <a>Connect</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--OVERVIEW BOTTOM SECTION > RIGHT PART-->
-                            <div class="member-connections" style="display: inline-block; float: right;">
-                                <strong>{{followers | number}}</strong> followers
-                            </div>
-                        </div>
+                            </div>							                  
+                        </div>    
                     </div>
                 </div>
+				
                 <div class="row profile-extra">
                     <div class="col link valign-wrapper">
                         <i id="linkA-bullet" class="valign"></i>
@@ -103,16 +74,17 @@
                     </div>
                 </div>
             </div>
-            <!--PROFILE CONTENT-->
+			
+			
+            <!--Phần 2-->
+			<!--BACKGROUND-->
             <div class="row">
-                <!--PROFILE LEFT COLUMN-->
-                <div id="profile" class="col">
-              
-                    <!--BACKGROUND CARD-->
+			      
                     <div class="card-body">
                         <h2 class="card-title">Background</h2>
                         <div id="background-content" class="card-content">
-                            <!--SUMMARY SECTION-->
+                            
+							<!--Phần 2.1-Summary-->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\commons\header-summary.png" class="valign" />
@@ -120,7 +92,8 @@
                                 </div>
                                 <p class="description">{{summary}}</p>
                             </div>
-                            <!--EXPERIENCE SECTION-->
+							
+                            <!--Phần 2.1-Experience-->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\commons\header-experience.png" class="valign" />
@@ -146,28 +119,20 @@
                                     <p class="description">{{exp.description}}</p>
                                 </div>
                             </div>
-                            <!--VOLUNTEER EXPERIENCE SECTION-->
-                            <div class="background-section">
+                          
+							<!--Phần 2.3-Project-->
+							<div class="background-section">
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-volunteerExperience.png" class="valign" />
-                                    <h3 class="valign">Volunteer Experience & Causes</h3>
+                                    <img src=".\images\commons\header-experience.png" class="valign" />
+                                    <h3 class="valign">Projects</h3>
                                 </div>
-                                <div id="background-volunteerexp">
-                                    <h4>Causes {{name[0]}} cares about</h4>
-                                    <ul class="browser-default">
-                                        <li ng-repeat="c in caredCauses">{{c}}</li>
-                                    </ul>
-                                    <h4>Organizations {{name[0]}} supports</h4>
-                                    <ul class="browser-default" style="margin-bottom: 0px !important;">
-                                        <li ng-repeat="org in supportedOrganizations">
-                                            <a href="https://www.linkedin.com/vsearch/p?company={{org}}&trk=prof-vol_interests-orgs-link">
-                                                {{org}}
-                                            </a>
-                                        </li>
-                                    </ul>
+                                <div ng-repeat="exp in experience">
+									<h4>{{projects.name}}</h4>
+                                    <p class="description">{{projects.description}}</p>
                                 </div>
                             </div>
-                            <!--SKILLS SECTION-->
+							
+                            <!--Phần 2.4-Skill-->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\commons\header-skill.png" class="valign" />
@@ -183,19 +148,11 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div id="extra-skills" ng-show="skills.length > 10">
-                                        <h5>{{name[0]}} also knows about...</h5>
-                                        <div class="skill-pill" ng-repeat="skill in skills" ng-show="$index >= 10">
-                                            <a class="btn-skill-count waves-effect waves-light btn">{{skill.endorsers}}</a>
-                                            <a class="btn-skill-description" href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
-                                                {{skill.name}}
-                                            </a>
-                                        </div>
-                                       
-                                    </div>
+                                  
                                 </div>
                             </div>
-                            <!--EDUCATION SECTION-->
+							
+                            <!--Phần 2.5-Education-->
                             <div class="background-section background-last-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\commons\header-education.png" class="valign" />
@@ -205,7 +162,7 @@
                                     <div class="row info-bar" ng-repeat="edu in education">
                                         <div style="display: inline-block">
                                             <a href="{{edu.url}}" class="info-title">{{edu.name}}</a>
-                                            <a class="info-subtitle">Bachelor of Science, Economics</a>
+                                            <a class="info-subtitle">{{edu.title}}</a>
                                             <span class="info-date">{{edu.startPeriod}} – {{edu.endPeriod}}</span>
                                         </div>
                                         <div class="info-logo">
@@ -217,11 +174,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!--PROFILE RIGHT COLUMN-->
-                <div id="dummy-column" class="col card-body">
-                </div>
+                    </div>  
             </div>
         </div>
     </div>
