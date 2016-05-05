@@ -2,7 +2,7 @@ var app = angular.module("myLinkedInApplication", []);
 
 app.controller("myLinkedInController", ["$scope", "$http", function($scope, $http) {
 	
-	var url = "https://api.myjson.com/bins/4y72y";
+	var url = "https://api.myjson.com/bins/zlg4";
 	$http.get(url)
 		.success(function(data) {
 			// đọc phần 1
