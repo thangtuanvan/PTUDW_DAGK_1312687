@@ -179,6 +179,23 @@
                                         </div>
                                     </div>
                                     <p class="description">{{exp.description}}</p>
+									
+									<div class="row info-bar">
+										<div style="display: inline-block">
+										
+											<span editable-text="exp.description" e-form="textBtnFormExperience">
+												{{ exp.description || 'empty' }}				
+											</span>											
+											
+											<span editable-text="exp.description" e-form="textBtnFormExperience">
+												{{ exp.description || 'empty' }}				
+											</span>		
+											
+											<a ng-click="textBtnFormExperience.$show()" ng-hide="textBtnFormExperience.$visible">
+												Edit
+											</a>
+										</div>
+									</div> 
                                 </div>
                             </div>
                           
