@@ -16,7 +16,7 @@
 		<script src="js/materialize.min.js"></script>
 		
 		
-
+		
 		<link href="angular-xeditable/css/xeditable.css" rel="stylesheet">
 		<script src="angular-xeditable/js/xeditable.js"></script>
 	</head>
@@ -133,7 +133,7 @@
 					<!--thụt vô-->
                     <div id="background-padding">
                        
-						<!--Phần 2.1-Summary-->
+							<!--Phần 2.1-Summary--------------------------------------------------------------------------->
 							<!--mỗi background-section là 1 mục được phân cách bằng gạch ngang-->
                             <div class="background-section">
 							
@@ -143,10 +143,19 @@
                                     <h3 class="valign">Summary</h3>
                                 </div>
 								<!--phần mô tả-->
-                                <p class="description">{{summary}}</p>
+								<div >
+									<span class="description" editable-text="summary" e-form="textBtnFormSummary">
+										{{ summary || 'empty' }}				
+									</span>
+												
+									<a ng-click="textBtnFormSummary.$show()" ng-hide="textBtnFormSummary.$visible">
+										Edit
+									</a>
+								</div>    
+                            
                             </div>
 							
-                            <!--Phần 2.1-Experience-->
+                            <!--Phần 2.1-Experience------------------------------------------------------------------------->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
 									<!--gồm icon và tiêu đề mục-->
@@ -159,9 +168,8 @@
                                             <a href="https://www.linkedin.com/title/{{exp.title}}?trk=mprofile_title"
                                                 title="Learn more about this title" class="info-title">{{exp.title}}</a>
                                             <a href="{{exp.companyUrl}}" class="info-subtitle">{{exp.companyName}}</a>
-                                            <span class="info-date">{{exp.startPeriod}} – {{exp.endPeriod}}
-                                                <span ng-show="exp.duration != ''">({{exp.duration}})</span>
-                                            <span ng-show="exp.location != ''"> | {{exp.location}}</span>
+                                            <span class="info-date">
+                                                <span ng-show="exp.duration != ''">({{exp.duration}})</span>                                         
                                             </span>
                                         </div>
                                         <div class="info-logo" ng-show="exp.companyLogo != ''">
@@ -174,19 +182,19 @@
                                 </div>
                             </div>
                           
-							<!--Phần 2.3-Project-->
+							<!--Phần 2.3-Project--------------------------------------------------------------------------->
 							<div class="background-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\icons\project-icon.png" class="valign" />
                                     <h3 class="valign">Projects</h3>
                                 </div>
-                                <div ng-repeat="exp in experience">
-									<h4>{{projects.name}}</h4>
-                                    <p class="description">{{projects.description}}</p>
+                                <div ng-repeat="project in projects">
+									<h6><b>{{project.name}}</b></h6>
+                                    <p style="margin-left:20px" class="description">{{project.description}}</p>
                                 </div>
                             </div>
 							
-                            <!--Phần 2.4-Skill-->
+                            <!--Phần 2.4-Skill--------------------------------------------------------------------------->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
 								
@@ -208,7 +216,7 @@
                                 </div>
                             </div>
 							
-                            <!--Phần 2.5-Education-->
+                            <!--Phần 2.5-Education--------------------------------------------------------------------------->
                             <div class="background-section background-last-section">
                                 <div class="valign-wrapper background-section-header">
                                    
