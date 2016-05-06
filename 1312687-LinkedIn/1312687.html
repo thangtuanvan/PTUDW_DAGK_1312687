@@ -18,23 +18,27 @@
 	
 	<body ng-controller="myLinkedInController">
 		
-	<div id="profile-page">
-        <img id="cover-picture" ng-src="{{coverPicture}}" alt="cover-picture" />
-        <div id="profile-content">
+	<div>
+        <img id="cover-picture" ng-src="{{coverPicture}}" alt="cover-picture"/>
+        
+		<!--Nội dung trang-->
+		<div id="page-content">
 		
-            <!--Phân 1-->
-            <div id="profile-topcard">
-                <div class="row profile-main">
+            <!--Phân 1-phần thông tin cá nhân-->
+            <div id="profile-page">
+                <div class="row">
+					<!--Chia làm 2 cột---gồm ảnh đại diện và thông tin cá nhân-->
 					<!--Ảnh đại diện-->
                     <img class="profile-picture col" ng-src="{{profilePicture}}" alt="profile-picture" />
-                    <div class="profile-overview col">
-                      
-                        <div class="overview-info row">
+                    
+					<!--Thông tin cá nhân-->
+					<div class="profile-overview col">                  
+                        <div class="row">
                             <!--Họ tên - Headline - Quốc gia-->
                             <div style="display: inline-block; float: left;">
-                                <h1 class="overview-name">{{name[0] + ' ' + name[1]}}</h1>
-                                <p class="overview-headline">{{headline}}</p>
-                                <p class="overview-demographics">
+                                <h1 class="user-name">{{name[0] + ' ' + name[1]}}</h1>
+                                <p class="user-headline">{{headline}}</p>
+                                <p class="user-demographics">
                                     <a href="https://www.google.com/#q=hochiminh+city">{{nation.city}}</a> |
                                     <a href="https://www.google.com/#q=vietnam">{{nation.state}}</a>
                                 </p>
