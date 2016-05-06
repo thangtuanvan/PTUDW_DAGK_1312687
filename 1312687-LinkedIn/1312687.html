@@ -14,6 +14,11 @@
 		<script src="js/app.js"></script>
 		<script src="js/jquery-2.2.3.min.js"></script>
 		<script src="js/materialize.min.js"></script>
+		
+		
+
+		<link href="angular-xeditable/css/xeditable.css" rel="stylesheet">
+		<script src="angular-xeditable/js/xeditable.js"></script>
 	</head>
 	
 	<body ng-controller="myLinkedInController">
@@ -22,7 +27,7 @@
         <img id="cover-picture" ng-src="{{coverPicture}}" alt="cover-picture"/>
         
 		<!--Nội dung trang-->
-		<div id="page-content">
+		<div id="page-content" ng-controller="Ctrl">
 		
             <!--Phân 1-phần thông tin cá nhân-->
             <div id="profile-page">
@@ -34,8 +39,18 @@
 					<!--Thông tin cá nhân-->
 					<div class="profile-overview col">                  
                         <div class="row">
+
                             <!--Họ tên - Headline - Quốc gia-->
                             <div style="display: inline-block; float: left;">
+								<div>
+									<span editable-text="user.name" e-form="textBtnForm">
+										{{ user.name || 'empty' }}				
+									</span>
+									
+									<a ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+										Edit
+									</a>
+								</div>
                                 <h1 class="user-name">{{name[0] + ' ' + name[1]}}</h1>
                                 <p class="user-headline">{{headline}}</p>
                                 <p class="user-nation">

@@ -1,4 +1,4 @@
-var app = angular.module("myLinkedInApplication", []);
+var app = angular.module("myLinkedInApplication", ["xeditable"]);
 
 app.controller("myLinkedInController", ["$scope", "$http", function($scope, $http) {
 	
@@ -28,3 +28,13 @@ app.controller("myLinkedInController", ["$scope", "$http", function($scope, $htt
             $scope.education = data.education;
 		});
 }]);
+
+app.run(function(editableOptions) {
+	editableOptions.theme = 'default';
+});
+
+app.controller('Ctrl', function($scope) {
+	$scope.user = {
+		name: "Tuan Van Thang"
+	};
+});
