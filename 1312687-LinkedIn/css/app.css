@@ -58,24 +58,14 @@ body {
     line-height: 20px;
     color: #666;
 }
-.overview-demographics {
+.overview-nation {
     margin: 2px 0px;
     padding: 0;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 17px;    
     font-weight: normal;
 }
-.overview-demographics a {
-    color: #66696a;
-}
-.overview-demographics a:hover {
-    color: #069;
-}
-.overview-summary {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 0;
-}
+
 .overview-summary th, td {
     padding: 2px 0px 0px 0px;
     font-size: 13px;
@@ -97,68 +87,7 @@ body {
     color: #069;   
 }
 
-#profile-action {
-    bottom: 0;
-    padding: 0px !important;
-    margin: 0px !important;
-}
-
-#follow-btn {
-    float: left;
-    border: 1px solid #1b5480;
-    border-radius: 3px 0 0 3px;
-    
-    padding: 0 13px;
-}
-#arrow-btn {  
-    float: left;
-    width: 31px;
-    padding: 0;
-    border: 1px solid #1b5480;
-    border-radius: 0 3px 3px 0;
-    border-left-width: 0px;
-}
-
-#supplemental-action {
-    display: inline-block;
-    padding: 2px 0px 0px 10px;
-    vertical-align: top;
-}
-#supplemental-action p, a {
-    font-size: 12px;
-    line-height: 14px;
-    font-weight: normal;
-    margin: 0;
-    padding: 0;
-    
-}
-#supplemental-action a {
-    display: block;
-    font-weight: bold;
-    color: #006fa6;
-    cursor: pointer;
-}
-#supplemental-action a:hover {
-    text-decoration: underline;
-}
-
-.member-connections {
-    font-size: 11px;
-    color: #999;
-    float: right;
-    padding: 7px 0 0 10px;
-    line-height: 15px;
-    vertical-align: bottom;
-    text-align: right;
-}
-.member-connections strong {
-    font-weight: bold;
-    display: block;
-    color: #333;
-    font-size: 18px;
-    line-height: 14px;
-}
-
+/*thanh bên dưới ảnh đại diện*/
 .profile-extra {
     -webkit-box-shadow: 0 1px 0 #fff inset;
     -moz-box-shadow: 0 1px 0 #fff inset;
@@ -167,19 +96,9 @@ body {
     border-top: 1px dashed #ccc;
     background: #f6f6f6;
 }
-.more-info {
-    border-left: 1px solid #ccc;
-    background-color: #ececec;
-    background-image: -webkit-linear-gradient(top, #ececec 0%,#e1e1e1 100%);
-    background-image: -moz-linear-gradient(top, #ececec 0%,#e1e1e1 100%);
-    background-image: -o-linear-gradient(top, #ececec 0%,#e1e1e1 100%);
-    background-image: linear-gradient(top, #ececec 0%,#e1e1e1 100%);
-    height: 38px; 
-    width: 122px;
-}
 
 .link {
-    height: 38px; 
+    height: 40px; 
 }
 
 .link-ref {
@@ -192,54 +111,41 @@ body {
     color: #069 !important;
 }
 
-#linkA-bullet {
-    background: url('../images/commons/link-idle.png') no-repeat;
+#linkedIn-link-bullet {
+    background: url('../images/icons/linkedIn-icon-idle.png') no-repeat;
     width: 12px;
     height: 12px;
-    margin-left: 21px;
+    margin-left: 10px;
     cursor: pointer;
     display: inline-block;
 }
-.link:hover #linkA-bullet {
-    background: url('../images/commons/link-hover.png') no-repeat;
+
+.link:hover #linkedIn-link-bullet {
+    background: url('../images/icons/linkedIn-icon-hover.png') no-repeat;
 }
 
-#linkB-bullet {
-    background: url('../images/commons/contact-idle.png') no-repeat;
+#contact-link-bullet {
+    background: url('../images/icons/contact-icon-idle.png') no-repeat;
     width: 15px;
     height: 11px;
     cursor: pointer;
     display: inline-block;
 }
-.link:hover #linkB-bullet {
-    background: url('../images/commons/contact-hover.png') no-repeat;
+
+.link:hover #contact-link-bullet {
+    background: url('../images/icons/contact-icon-hover.png') no-repeat;
 }
 
-#profile {
-    width: 646px;
-    word-wrap: break-word;
-    min-height: 1px;
-    margin-right: 10px;
-    padding: 0px;
-}
-#dummy-column {
-    background: white;
-    height: 1200px;
-    width: 318px;
-}
-
-.card-body {
+/*trang background, định dạng trang trắng*/
+.background-page {
     background: white;
     padding-bottom: 20px;
     margin-bottom: 18px;
     box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.card-content {
-    font: inherit;
-    font-size: 100%;  
-    word-wrap: break-word;
-}
-.card-title {
+}	
+
+/*chữ background với nền đen*/
+.title-background-page {
     background-color: #333; 
     color: white; 
     display: inline-block;
@@ -250,99 +156,28 @@ body {
     margin: 0px;
 }
 
-.arrow-right {
-	width: 0; 
-	height: 0; 
-	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-	
-	border-left: 4px solid #66696a;
-    display: inline-block;
-    margin-left: 5px;
-}
-.arrow-down {
-	width: 0; 
-	height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-		
-	border-top: 5px solid white;
-    display: inline-block;
-}
-
-#post-content {
-    margin-top: 1px;
-    padding: 18px 5px 18px 18px;
-    background-color: #f4f4f4;
-}
-#post-header {
-    overflow: hidden;
-    margin-bottom: 16px;
-    padding-right: 3px;   
-}
-#post-header h4 {
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 16px;
-    color: #434649;
-    margin: 0px;
-    float: left;
-}
-#see-more {
-    font-size: 13px;
-    line-height: 17px;
-    color: #66696a;
-    font-weight: normal;
-    float: left;
-    clear: left;
-    text-decoration: none;
-    padding-right: 10px;
-    position: relative;
-}
-#see-more:hover {
-    text-decoration: underline;
-}
-.post {
-    display: inline-block;
-    width: 195px;
-    min-height: 135px;
-    margin-right: 10px;
-    vertical-align: text-top;
-}
-.post-title {
-    display: block;   
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 16px;
-    word-wrap: break-word;
-    color: #000;  
-}
-.post-title:hover {
-    color: #006fa6;
-}
-.post-date {
-    display: block;
-    font-size: 12px;
-    line-height: 14px;
-    color: #66696a;
-    margin-top: 3px;
-}
-
-#background-content {
+/*thụt vô trái phải 20px*/
+#background-padding {
     padding: 0px 20px 0px 20px;
 }
+
+/*mỗi mục có 1 dòng gạch ngang tách giữa 2 phần*/
 .background-section {
     margin-top: 16px;
     margin-bottom: 8px;
     padding-bottom: 20px;
     border-bottom: 1px solid #e8e8e8;
 }
-.background-last-section {
-    border: none;
-}
+
+/*paragraph cho mỗi mục*/
 .background-section-header {  
     margin-bottom: -10px;
 }
+
+.background-last-section {
+    border: none;
+}
+
 .background-section-header > h3 {
     display: inline;
     margin-left: 20px;
@@ -352,6 +187,7 @@ body {
     color: #434649;
 }
 
+/*mô tả nội dung*/
 .description {
     white-space: pre-line;
     font-size: 13px;
@@ -481,6 +317,7 @@ body {
     font-size: 14px;
     font-weight: normal;
     line-height: 16px;
+    color: #434649;
     color: #434649;
     margin-top: 30px;
     margin-bottom: 20px;

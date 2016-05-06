@@ -38,7 +38,7 @@
                             <div style="display: inline-block; float: left;">
                                 <h1 class="user-name">{{name[0] + ' ' + name[1]}}</h1>
                                 <p class="user-headline">{{headline}}</p>
-                                <p class="user-demographics">
+                                <p class="user-nation">
                                     <a href="https://www.google.com/#q=hochiminh+city">{{nation.city}}</a> |
                                     <a href="https://www.google.com/#q=vietnam">{{nation.state}}</a>
                                 </p>
@@ -65,13 +65,13 @@
 				
                 <div class="row profile-extra">
                     <div class="col link valign-wrapper">
-                        <i id="linkA-bullet" class="valign"></i>
+                        <i id="linkedIn-link-bullet" class="valign"></i>
                         <a class="link-ref valign" href="{{profileUrl}}">
                             <span>{{profileUrl}}</span>
                         </a>
                     </div>
                     <div class="col right more-info valign-wrapper link">
-                        <i id="linkB-bullet" class="valign"></i>
+                        <i id="contact-link-bullet" class="valign"></i>
                         <a class="link-ref valign" href="">
                             <span>Contact Info</span>
                         </a>
@@ -82,25 +82,32 @@
 			
             <!--Phần 2-->
 			<!--BACKGROUND-->
-            <div class="row">
-			      
-                    <div class="card-body">
-                        <h2 class="card-title">Background</h2>
-                        <div id="background-content" class="card-content">
-                            
-							<!--Phần 2.1-Summary-->
+            <div class="row">      
+                <div class="background-page">
+					<!--Chữ background với nền đen-->
+                    <h2 class="title-background-page">Background</h2>
+									
+					<!--thụt vô-->
+                    <div id="background-padding">
+                       
+						<!--Phần 2.1-Summary-->
+							<!--mỗi background-section là 1 mục được phân cách bằng gạch ngang-->
                             <div class="background-section">
+							
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-summary.png" class="valign" />
+									<!--gồm icon và tiêu đề mục-->
+                                    <img src=".\images\icons\summary-icon.png" class="valign" />
                                     <h3 class="valign">Summary</h3>
                                 </div>
+								<!--phần mô tả-->
                                 <p class="description">{{summary}}</p>
                             </div>
 							
                             <!--Phần 2.1-Experience-->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-experience.png" class="valign" />
+									<!--gồm icon và tiêu đề mục-->
+                                    <img src=".\images\icons\experience-icon.png" class="valign" />
                                     <h3 class="valign">Experience</h3>
                                 </div>
                                 <div ng-repeat="exp in experience">
@@ -127,7 +134,7 @@
 							<!--Phần 2.3-Project-->
 							<div class="background-section">
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-experience.png" class="valign" />
+                                    <img src=".\images\icons\project-icon.png" class="valign" />
                                     <h3 class="valign">Projects</h3>
                                 </div>
                                 <div ng-repeat="exp in experience">
@@ -139,7 +146,9 @@
                             <!--Phần 2.4-Skill-->
                             <div class="background-section">
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-skill.png" class="valign" />
+								
+									<!--gồm icon và tiêu đề mục-->
+                                    <img src=".\images\icons\skill-icon.png" class="valign" />
                                     <h3 class="valign">Skills</h3>
                                 </div>
                                 <div id="skills-section">
@@ -159,7 +168,9 @@
                             <!--Phần 2.5-Education-->
                             <div class="background-section background-last-section">
                                 <div class="valign-wrapper background-section-header">
-                                    <img src=".\images\commons\header-education.png" class="valign" />
+                                   
+									<!--gồm icon và tiêu đề mục-->
+  								    <img src=".\images\icons\education-icon.png" class="valign" />
                                     <h3 class="valign">Education</h3>
                                 </div>
                                 <div>
