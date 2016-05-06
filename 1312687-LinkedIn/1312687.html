@@ -163,7 +163,8 @@
                                     <h3 class="valign">Experience</h3>
                                 </div>
                                 <div ng-repeat="exp in experience">
-                                    <div class="row info-bar">
+<!-- Chuyển từ không edit thành edit
+									<div class="row info-bar">
                                         <div style="display: inline-block">
                                             <a href="https://www.linkedin.com/title/{{exp.title}}?trk=mprofile_title"
                                                 title="Learn more about this title" class="info-title">{{exp.title}}</a>
@@ -179,37 +180,90 @@
                                         </div>
                                     </div>
                                     <p class="description">{{exp.description}}</p>
+-->									
+									
+									
 									
 									<div class="row info-bar">
-										<div style="display: inline-block">
-										
-											<span editable-text="exp.description" e-form="textBtnFormExperience">
-												{{ exp.description || 'empty' }}				
-											</span>											
-											
-											<span editable-text="exp.description" e-form="textBtnFormExperience">
-												{{ exp.description || 'empty' }}				
-											</span>		
-											
-											<a ng-click="textBtnFormExperience.$show()" ng-hide="textBtnFormExperience.$visible">
-												Edit
+										<form editable-form name="editableForm" onaftersave="saveUser()">
+											<div class="row info-bar">
+												<div style="display: inline-block">
+													<a href="https://www.linkedin.com/title/{{exp.title}}?trk=mprofile_title"
+														title="Learn more about this title" class="info-title">{{exp.title}}</a>
+													<a href="{{exp.companyUrl}}" class="info-subtitle">{{exp.companyName}}</a>
+													<span class="info-date">
+														<p>Duration:</p>
+														<span style="margin-left:20px" editable-text="exp.duration" e-name="name"  e-required>{{ exp.duration || 'empty' }}</span>                                       
+													</span>
+												</div>
+												<div class="info-logo" ng-show="exp.companyLogo != ''">
+													<a href="{{exp.companyUrl}}">
+													   <img src="{{exp.companyLogo}}" /> 
+													</a>                                    
+												</div>
+											</div>
+                                   								
+											<div class="info-date">
+												<p>Description:</p>
+												<span style="margin-left:20px" editable-text="exp.description" e-name="name" e-required>{{ exp.description || 'empty' }}</span>
+											</div> 
+																									
+											<!-- button to show form -->
+											<a ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+													Edit
 											</a>
-										</div>
+											<!-- buttons to submit / cancel form -->
+											<span ng-show="editableForm.$visible">
+												<button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+													Save
+												</button>
+												<button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+													Cancel
+												</button>
+											</span>
+										</form>
 									</div> 
                                 </div>
                             </div>
                           
+						  
 							<!--Phần 2.3-Project--------------------------------------------------------------------------->
 							<div class="background-section">
                                 <div class="valign-wrapper background-section-header">
                                     <img src=".\images\icons\project-icon.png" class="valign" />
                                     <h3 class="valign">Projects</h3>
                                 </div>
+<!--
                                 <div ng-repeat="project in projects">
 									<h6><b>{{project.name}}</b></h6>
                                     <p style="margin-left:20px" class="description">{{project.description}}</p>
                                 </div>
                             </div>
+-->								<div ng-repeat="project in projects">
+									<form editable-form name="editableForm" onaftersave="saveUser()">
+										<div class="info-date">
+											<h6><b><span editable-text="project.name" e-name="name" e-required>{{ project.name || 'empty' }}</span></b></h6>
+										
+											<span style="margin-left:20px" editable-text="project.description" e-name="name" e-required>{{ project.description || 'empty' }}</span>
+										</div> 
+									
+										<!-- button to show form -->
+										<a ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+											Edit
+										</a>
+										<!-- buttons to submit / cancel form -->
+										<span ng-show="editableForm.$visible">
+											<button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+												Save
+											</button>
+											<button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+												Cancel
+											</button>
+										</span>		
+									</form>
+								</div>
+							</div>
+							
 							
                             <!--Phần 2.4-Skill--------------------------------------------------------------------------->
                             <div class="background-section">
@@ -223,10 +277,35 @@
                                     <div>
                                         <h5>Top Skills</h5>
                                         <div class="skill-pill" ng-repeat="skill in skills | limitTo: 10">
-                                            <a class="btn-skill-count waves-effect waves-light btn">{{skill.endorsers}}</a>
+
+										<!--                                           
+											<a class="btn-skill-count waves-effect waves-light btn">{{skill.endorsers}}</a>
                                             <a class="btn-skill-description" href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
                                                 {{skill.name}}
                                             </a>
+										-->
+										
+											<form editable-form name="editableForm" onaftersave="saveUser()">
+												<div class="info-date">
+													<a class="btn-skill-count waves-effect waves-light btn"><span editable-text="skill.endorsers" e-name="name" e-required>{{ skill.endorsers || 'empty' }}</span></a>
+												
+													<a class="btn-skill-description" href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic"><span editable-text="skill.name" e-name="name" e-required>{{ skill.name || 'empty' }}</span></a>
+												
+													<!-- button to show form -->
+													<a ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+														Edit
+													</a>
+													<!-- buttons to submit / cancel form -->
+													<span ng-show="editableForm.$visible">
+														<button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+															Save
+														</button>
+														<button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+															Cancel
+														</button>
+													</span>		
+												</div> 													
+											</form>
                                         </div>
                                     </div>
                                   
@@ -243,7 +322,8 @@
                                 </div>
                                 <div>
                                     <div class="row info-bar" ng-repeat="edu in education">
-                                        <div style="display: inline-block">
+<!--                                       
+									   <div style="display: inline-block">
                                             <a href="{{edu.url}}" class="info-title">{{edu.name}}</a>
                                             <a class="info-subtitle">{{edu.title}}</a>
                                             <span class="info-date">{{edu.startPeriod}} – {{edu.endPeriod}}</span>
@@ -253,6 +333,36 @@
                                                <img src="{{edu.logo}}" height="60" /> 
                                             </a>              
                                         </div>
+-->
+			
+											<form editable-form name="editableForm" onaftersave="saveUser()">
+												<div class="info-date" style="display: inline-block">
+													<a href="{{edu.url}}" class="info-title"><span editable-text="edu.name" e-name="name" e-required>{{ edu.name || 'empty' }}</span></a>
+												
+													<a class="info-subtitle"><span editable-text="edu.title" e-name="name" e-required>{{ edu.title || 'empty' }}</span></a>
+													<span class="info-date">{{edu.startPeriod}} – {{edu.endPeriod}}</span>
+
+													<!-- button to show form -->
+													<a ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+														Edit
+													</a>
+													<!-- buttons to submit / cancel form -->
+													<span ng-show="editableForm.$visible">
+														<button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+															Save
+														</button>
+														<button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+															Cancel
+														</button>
+													</span>		
+												</div> 	
+
+												<div class="info-logo">
+													<a href="{{edu.url}}">
+													   <img src="{{edu.logo}}" height="60" /> 
+													</a>              
+												</div>												
+											</form>
                                     </div>
                                 </div>
                             </div>
