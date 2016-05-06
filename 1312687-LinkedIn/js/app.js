@@ -2,7 +2,7 @@ var app = angular.module("myLinkedInApplication", ["xeditable"]);
 
 app.controller("myLinkedInController", ["$scope", "$http", function($scope, $http) {
 	
-	var url = "https://api.myjson.com/bins/zlg4";
+	var url = "https://api.myjson.com/bins/1mrmo";
 	$http.get(url)
 		.success(function(data) {
 			// đọc phần 1
@@ -27,6 +27,7 @@ app.controller("myLinkedInController", ["$scope", "$http", function($scope, $htt
             
             $scope.education = data.education;
 		});
+	
 }]);
 
 app.run(function(editableOptions) {
@@ -34,7 +35,5 @@ app.run(function(editableOptions) {
 });
 
 app.controller('Ctrl', function($scope) {
-	$scope.user = {
-		name: "Tuan Van Thang"
-	};
+
 });

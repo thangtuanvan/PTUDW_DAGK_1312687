@@ -42,35 +42,63 @@
 
                             <!--Họ tên - Headline - Quốc gia-->
                             <div style="display: inline-block; float: left;">
+								<!--name-->
 								<div>
-									<span editable-text="user.name" e-form="textBtnForm">
-										{{ user.name || 'empty' }}				
+									<span class="user-name" editable-text="name" e-form="textBtnFormName">
+										{{ name || 'empty' }}				
 									</span>
 									
-									<a ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+									<a ng-click="textBtnFormName.$show()" ng-hide="textBtnFormName.$visible">
 										Edit
 									</a>
 								</div>
-                                <h1 class="user-name">{{name[0] + ' ' + name[1]}}</h1>
-                                <p class="user-headline">{{headline}}</p>
+								<!--headline-->
+							   	<div>
+									<span class="user-headline" editable-text="headline" e-form="textBtnFormHeadline">
+										{{ headline || 'empty' }}				
+									</span>
+									
+									<a ng-click="textBtnFormHeadline.$show()" ng-hide="textBtnFormHeadline.$visible">
+										Edit
+									</a>
+								</div>                             
+								
                                 <p class="user-nation">
                                     <a href="https://www.google.com/#q=hochiminh+city">{{nation.city}}</a> |
                                     <a href="https://www.google.com/#q=vietnam">{{nation.state}}</a>
                                 </p>
+								
+								
 							<!--Thông tin liên lạc-->
 							<table class="overview-summary">
                                     <tr>
                                         <th scope="row"><a href="">Email</a></th>
                                         <th>
-                                            {{contact.email}}
+                                            <div>
+												<span editable-text="contact.email" e-form="textBtnFormEmail">
+													{{ contact.email || 'empty' }}				
+												</span>
+												
+												<a ng-click="textBtnFormEmail.$show()" ng-hide="textBtnFormEmail.$visible">
+													Edit
+												</a>
+											</div>    
                                         </th>
                                     </tr>
                                     
 									<tr>
-                                        <th scope="row"><a href="">Phone</a></th>
-                                        <th>
-											{{contact.phone}}
-                                        </th>
+                                        <th scope="row"><a href="">Phone</a></th>      						
+										<th>
+											<div>
+												<span editable-text="contact.phone" e-form="textBtnFormPhone">
+													{{ contact.phone || 'empty' }}				
+												</span>
+													
+												<a ng-click="textBtnFormPhone.$show()" ng-hide="textBtnFormPhone.$visible">
+													Edit
+												</a>
+											</div> 
+										</th>
                                     </tr>
                                 </table>
                             </div>							                  
